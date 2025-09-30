@@ -1,0 +1,51 @@
+import java.util.HashMap;
+import java.util.Map;
+
+public class HashMapExample {
+
+    public static void main(String[] args) {
+// 1. Deklarasi dan Inisialisasi HashMap
+// Key: String (NIM), Value: String (Nama)
+        HashMap<String, String> studentMap = new HashMap<>();
+// 2. Menambahkan elemen menggunakan method put()
+        System.out.println("--- 1. Menambahkan Elemen (put) ---");
+        studentMap.put("1801", "Ani Susanti");
+        studentMap.put("1802", "Budi Darmawan");
+        studentMap.put("1803", "Citra Dewi");
+        studentMap.put("1804", "Deni Pratama");
+        System.out.println("HashMap setelah penambahan: " + studentMap);
+// 3. Mengambil Nilai berdasarkan Kunci menggunakan method get()
+        System.out.println("\n--- 2. Mengambil Nilai (get) ---");
+        String studentName = studentMap.get("1802");
+        System.out.println("Nama mahasiswa dengan NIM 1802 adalah: "
+                + studentName);
+// 4. Mengubah Nilai (menimpa) untuk Kunci yang sudah ada (put)
+        System.out.println("\n--- 3. Mengubah Nilai (put/replace) ---");
+        studentMap.put("1803", "Citra Kusuma"); // Nilai lama 'Citra Dewi'akan diganti
+        System.out.println("HashMap setelah perubahan 1803: " + studentMap);
+// 5. Menghapus pasangan Kunci-Nilai menggunakan method remove()
+        System.out.println("\n--- 4. Menghapus Elemen (remove) ---");
+        studentMap.remove("1804");
+        System.out.println("HashMap setelah menghapus 1804: " + studentMap);
+// 6. Mengecek Kunci dan Nilai menggunakan containsKey() dan containsValue()
+        System.out.println("\n--- 5. Pengecekan (contains) ---");
+        boolean hasKey = studentMap.containsKey("1801");
+        System.out.println("Apakah ada NIM 1801? " + hasKey);
+        boolean hasValue = studentMap.containsValue("Budi Darmawan");
+        System.out.println("Apakah ada nama Budi Darmawan? " + hasValue);
+// 7. Iterasi (Perulangan) melalui HashMap menggunakan entrySet()
+        System.out.println("\n--- 6. Iterasi (Perulangan) ---");
+        for (Map.Entry<String, String> entry : studentMap.entrySet()) {
+            System.out.println("NIM: " + entry.getKey() + ", Nama: "
+                    + entry.getValue());
+        }
+// 8. Mendapatkan ukuran HashMapSystem.out.println("\n--- 7. Ukuran ---");
+        System.out.println("Jumlah mahasiswa saat ini: "
+                + studentMap.size());
+// 9. Membersihkan seluruh isi HashMap
+        studentMap.clear();
+        System.out.println("HashMap setelah clear: " + studentMap);
+        System.out.println("Apakah HashMap kosong? "
+                + studentMap.isEmpty());
+    }
+}
